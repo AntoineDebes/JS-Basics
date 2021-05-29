@@ -1,11 +1,18 @@
-(function(){
-    var img = document.querySelectorAll("img");
+var img = document.querySelectorAll("img");
 
-    img.forEach(img => img.addEventListener("mouseover", () => {
-        img.src = img.src.replace(".jpg","_2.jpg"); 
-    }));
+const onImageMouseOver = (event) => {
+  const img = event.target;
+  img.src = img.src.replace(".jpg","_2.jpg"); 
+}
 
-    img.forEach(img => img.addEventListener("mouseout", () => {
-        img.src = img.src.replace("_2.jpg",".jpg"); 
-    }));
-})();
+const onImageMouseOut = (event) => {
+  const img = event.target;
+  img.src = img.src.replace("_2.jpg",".jpg"); 
+}
+
+img.forEach(img => {
+
+  img.addEventListener("mouseover", onImageMouseOver);
+  img.addEventListener("mouseout", onImageMouseOut);
+
+});
